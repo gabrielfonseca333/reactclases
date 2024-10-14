@@ -6,12 +6,14 @@ import reportWebVitals from './reportWebVitals';
 
 //created by me
 import Contador from './components/Contador';
+import DibujosComplejos from './components/DibujosComplejos';
+import DibujosComplejosReact from './components/DibujosComplejosReact';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Contador inicio="9"/>
-    <Contador inicio="101"/>
+    <DibujosComplejosReact/>
+
   </React.StrictMode>
 );
 
