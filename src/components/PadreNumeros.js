@@ -3,6 +3,7 @@ import HijoNumero from "./HijoNumero";
 
 class PadreNumeros extends Component {
 
+    //comentarios para pushear prueba
     //creamos el método sumar
     hacerSuma = (numero) => {
 
