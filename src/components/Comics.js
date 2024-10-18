@@ -44,13 +44,48 @@ class Comics extends Component {
     favorito: null,
   };
 
+  seleccionarFavorito =(comicFavorito)=>{
+
+    this.setState({
+      favorito:comicFavorito
+    })
+  }
+
+  eliminarComic=(index)=>{
+    //eliminar algo de un array
+    //método llamado "splice" que nos pide el INDEX 
+    // del elemento a eliminar del array y el numero de elementos
+    // a eliminar
+    this.state.comics.splice(index, 1);
+    this.setState({
+      comics:this.state.comics
+    })
+
+
+
+  }
+
   render() {
     return (
       <div>
         <h1 style={{ color: "red" }}>Soy el Padre COMICS</h1>
         {
+          this.state.favorito && //esto es un IF, aqui esta diciendo que si es NULL haga lo de abajo
+          ((<div style={{border:"solid 5px gold"}}>
+            <h3>Mi comic favorito es: </h3>
+            <h2 style={{color:"gold"}}>{this.state.favorito.titulo}</h2>
+            <img src={this.state.favorito.imagen} style={{width:"250px"}}/>
+          </div>))
+        }
+        {
           this.state.comics.map((objetocomic, index)=>{
-            return (<Comic key={index} comic={objetocomic}/>) //le estamos enviado en objeto entero al hijo como props
+            return (<Comic 
+              key={index}
+              index={index}
+              comic={objetocomic} //le estamos enviado en objeto entero al hijo como props
+              seleccionarFavorito={this.seleccionarFavorito} 
+              eliminarComic={this.eliminarComic}
+              />) 
           })
         }
       </div>

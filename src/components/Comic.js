@@ -2,7 +2,6 @@ import { Component } from "react";
 
 class Comic extends Component{
 
-    
 
     render(){
         return(
@@ -11,10 +10,14 @@ class Comic extends Component{
                 <p>{this.props.comic.descripcion}</p>
                 <img src={this.props.comic.imagen} style={{width:"250px"}}/>
                 <br></br>
-                <button>
-                    Seleccionar
+                <button onClick={()=>{
+                    this.props.seleccionarFavorito(this.props.comic);
+                }}>
+                    Seleccionar favorito
                 </button>
-                <button>
+                <button onClick={()=>{
+                    this.props.eliminarComic(this.props.index);
+                }}>
                     Eliminar
                 </button>
             </div>
